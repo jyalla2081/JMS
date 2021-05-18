@@ -1,5 +1,5 @@
 spring:
-  
+
   profiles:
     active: prod
     
@@ -31,3 +31,5 @@ rabbitmq:
   router: 2081-router1
 
 server:  port: 8081
+  
+ 

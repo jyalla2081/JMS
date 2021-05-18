@@ -1,6 +1,6 @@
 package com.jyalla.demo.util;
 
-import static org.mockito.Mockito.verify;
+import static org.assertj.core.api.Assertions.assertThatNoException;
 import java.util.Date;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
@@ -36,7 +36,8 @@ class MqUtilTest extends BaseClass {
     void publishMessage() {
         CustomMessage message = new CustomMessage("1", "test", new Date());
 
-        verify(mqUtil.publishMessage(message));
+        mqUtil.publishMessage(message);
+        assertThatNoException();
     }
 
 }
