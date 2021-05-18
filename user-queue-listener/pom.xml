@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jyalla</groupId>
-	<artifactId>Employee-MQReciever</artifactId>
+	<artifactId>user-queue-listener</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Employee-MQReciever</name>
-	<description>Demo project for Employee-MQReciever</description>
+	<name>user-queue-listenerr</name>
+	<description>Demo project for user-queue-listener</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
