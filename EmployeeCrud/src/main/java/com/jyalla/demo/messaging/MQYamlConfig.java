@@ -1,4 +1,4 @@
-package com.jyalla.demo.config;
+package com.jyalla.demo.messaging;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -7,28 +7,21 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties
 @ConfigurationProperties("rabbitmq")
-public class RabbitMqYamlConfig {
-    private String exchange;
-    private String queue;
-    private String router;
+public class MQYamlConfig {
+    public String queue;
+    public String exchange;
+    public String router;
 
-    public RabbitMqYamlConfig(String exchange, String queue, String router) {
+    public MQYamlConfig(String queue, String exchange, String router) {
         super();
-        this.exchange = exchange;
         this.queue = queue;
+        this.exchange = exchange;
         this.router = router;
     }
 
-    public RabbitMqYamlConfig() {
+    public MQYamlConfig() {
         super();
-    }
-
-    public String getExchange() {
-        return exchange;
-    }
-
-    public void setExchange(String exchange) {
-        this.exchange = exchange;
+        // TODO Auto-generated constructor stub
     }
 
     public String getQueue() {
@@ -39,17 +32,27 @@ public class RabbitMqYamlConfig {
         this.queue = queue;
     }
 
-    public String getrouter() {
+    public String getExchange() {
+        return exchange;
+    }
+
+    public void setExchange(String exchange) {
+        this.exchange = exchange;
+    }
+
+    public String getRouter() {
         return router;
     }
 
-    public void setrouter(String router) {
+    public void setRouter(String router) {
         this.router = router;
     }
 
     @Override
     public String toString() {
-        return "RabbitMqYamlConfig [exchange=" + exchange + ", queue=" + queue + ", router=" + router + "]";
+        return "MQYamlConfig [queue=" + queue + ", exchange=" + exchange + ", router=" + router + "]";
     }
+
+
 
 }

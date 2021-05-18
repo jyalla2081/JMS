@@ -1,4 +1,4 @@
-package com.jyalla.demo.config;
+package com.jyalla.demo.messaging;
 
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.core.Binding;
@@ -14,28 +14,30 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class RabbitMQConfig {
+public class MQConfig {
+
+    // public static final String ROUTING_NAME = "2081-router1";
+    // public static final String EXCHANGE_NAME = "2081-topic1";
+    // public static final String QUEUE_NAME = "2081-queue1";
 
     @Autowired
-    RabbitMqYamlConfig rabbit;
-
-
+    MQYamlConfig mqYaml;
 
     @Bean
     public Queue queue() {
-        return new Queue(rabbit.getQueue(), true);
+        return new Queue(mqYaml.getQueue(), true);
     }
 
     @Bean
     public TopicExchange exchange() {
-        return new TopicExchange(rabbit.getExchange());
+        return new TopicExchange(mqYaml.getExchange());
     }
 
     @Bean
     public Binding binding(Queue queue, TopicExchange exchange) {
         return BindingBuilder.bind(queue)
                 .to(exchange)
-                .with(rabbit.getrouter());
+                .with(mqYaml.getRouter());
     }
 
     @Bean
